@@ -17,4 +17,13 @@ public class Main {
         double mean = 0, m2 = 0; // Welford online variance
         int n = 0;
         double threshold = 3.0; // z-score
-        System.out.println("id,timestamp,value,z,anomaly");
+        System.out.println("id,timestamp,value,z,anomaly");
+        for (Tx t : list) {
+            n++;
+            double delta = t.value - mean;
+            mean += delta / n;
+            m2 += delta * (t.value - mean);
+            double variance = (n>1) ? m2/(n-1) : 0.0;
+            double std = Math.sqrt(variance);
+            double z = (std>0) ? (t.value-mean)/std : 0.0;
+            boolean anomaly = Math.abs(z) >= threshold && n>20;

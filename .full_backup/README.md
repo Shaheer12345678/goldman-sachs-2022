@@ -7,4 +7,8 @@ Projects/submissions are **not public**; leaderboards visible only to participan
 This folder includes a representative final-round style task:
 
 **Financial Data Parser & Anomaly Detector (Java)**  
-- Reads CSV trade logs.  
+- Reads CSV trade logs.  
+- Computes rolling mean and standard deviation of transaction values.  
+- Flags anomalies by z-score threshold.
+
+Run:
