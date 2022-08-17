@@ -26,4 +26,14 @@ public class Main {
             double variance = (n>1) ? m2/(n-1) : 0.0;
             double std = Math.sqrt(variance);
             double z = (std>0) ? (t.value-mean)/std : 0.0;
-            boolean anomaly = Math.abs(z) >= threshold && n>20;
+            boolean anomaly = Math.abs(z) >= threshold && n>20;
+            System.out.printf("%s,%d,%.2f,%.3f,%s%n", t.id, t.ts, t.value, z, anomaly);
+        }
+    }
+
+    static List<Tx> readCsv(String path) throws Exception {
+        List<Tx> out = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+            String line; boolean headerSkipped=false;
+            while ((line = br.readLine()) != null) {
+                if (!headerSkipped){ headerSkipped=true; continue; }

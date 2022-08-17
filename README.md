@@ -11,4 +11,9 @@ This folder includes a representative final-round style task:
 - Computes rolling mean and standard deviation of transaction values.  
 - Flags anomalies by z-score threshold.
 
-Run:
+Run:
+```bash
+cd src
+javac Main.java
+java Main data/sample_transactions.csv
+```
