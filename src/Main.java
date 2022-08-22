@@ -36,4 +36,13 @@ public class Main {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line; boolean headerSkipped=false;
             while ((line = br.readLine()) != null) {
-                if (!headerSkipped){ headerSkipped=true; continue; }
+                if (!headerSkipped){ headerSkipped=true; continue; }
+                String[] p = line.split(",");
+                if (p.length<3) continue;
+                out.add(new Tx(p[0], Long.parseLong(p[1]), Double.parseDouble(p[2])));
+            }
+        }
+        return out;
+    }
+}
+

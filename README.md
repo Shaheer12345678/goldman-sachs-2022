@@ -16,4 +16,8 @@ Run:
 cd src
 javac Main.java
 java Main data/sample_transactions.csv
-```
+```
+
+**Links (background):**
+- Example event listing: `https://unstop.com/hackathons/engineering-campus-hackathon-2022-goldman-sachs-274588`
+
